@@ -1,0 +1,15 @@
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  go-echo:
+    lang: python3
+    handler: ./fpressure
+    image: fpressure:latest
+    environment:
+      write_debug: true
+    labels:
+      com.openfaas.scale.min: 1
+      com.openfaas.scale.max: 3
+
